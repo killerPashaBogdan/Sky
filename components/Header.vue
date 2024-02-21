@@ -11,7 +11,7 @@
         <img src="/A1.png">
         <h2>+375 (25) 57335215</h2>
       </div>
-      <button class="button">Вызвать замерщика</button>
+      <button class="button" @click="emit('changeModal')">Вызвать замерщика</button>
     </div>
     
     <nav>
@@ -26,6 +26,10 @@
     </nav>
   </header>
 </template>
+
+<script setup>
+const emit = defineEmits(['changeModal']);
+</script>
 
 <style scoped>
 header {

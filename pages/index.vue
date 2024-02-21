@@ -1,24 +1,17 @@
 <template>
-    <div>
-      <Header />
-      <Slider />
-      <div>
-      </div>
-    </div>
-  </template>
-  
-  <script>
-  import Header from '~/components/Header.vue';
-  import Slider from '~/components/Slider.vue';
-  
-  export default {
-    components: {
-      Header,
-      Slider,
-    },
-  };
-  </script>
-  
-  <style scoped>
+  <div>
+    <Header @change-modal="changeModalVisibility" />
+    <Slider />
+    <Transition name="fade">
+      <Modal v-if="isModalOpened" @close-modal="changeModalVisibility" />
+    </Transition>
+  </div>
+</template>
 
-  </style>
+<script setup>
+const isModalOpened = ref('');
+
+function changeModalVisibility() {
+  isModalOpened.value = !isModalOpened.value;
+}
+</script>
