@@ -1,11 +1,13 @@
 <template>
-  <div class="modal">
-    <div class="modal-content">
-      <span class="close" @click="emit('closeModal')">&times;</span>
-      <input v-model="name" placeholder="Ваше имя">
-      <input v-model="phoneNumber" placeholder="Ваш номер телефона">
-      <button @click="submitOrder">Отправить заказ</button>
-      <button @click="emit('closeModal')">Отмена</button>
+  <div class="modal" @click="closeModal">
+    <div class="modal-content" @click.stop>
+      <form @click.stop>
+        <span class="close" @click="emit('closeModal')">&times;</span>
+        <h2>Оставить заявку</h2>
+        <input v-model="name" placeholder="Ваше имя" required>
+        <input v-model="phoneNumber" placeholder="Номер телефона" required type="tel">
+        <button type="submit">Отправить заявку</button>
+      </form>
     </div>
   </div>
 </template>
@@ -16,9 +18,9 @@
   const name = ref('');
   const phoneNumber = ref('');
 
-  function submitOrder() {
-    alert(`Your name is ${name.value} and your phone number is ${phoneNumber.value}`);
-  }
+  const closeModal = () => {
+    emit('closeModal');
+  };
 </script>
 
 <style scoped>
@@ -27,6 +29,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  text-align: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -44,17 +47,25 @@
 
 input {
   margin-bottom: 10px;
-  padding: 8px;
+  padding: 12px;
   width: 100%;
   box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 button {
-  padding: 10px;
-  margin-right: 10px;
-  cursor: pointer;
+  background-color: #2163B2;
+  color: white;
   border: none;
-  border-radius: 5px;
+  cursor: pointer;
+  padding: 20px 25px;
+  border-radius: 15px;
+  margin-top: 10px;
+  font-size: 15px;
+}
+button:hover {
+  background-color: #174580;
 }
 
 .close {
@@ -64,5 +75,54 @@ button {
   font-size: 20px;
   cursor: pointer;
 }
+@media (max-width: 1200px) {
+  .modal-content {
+    padding: 15px;
+  }
+  button {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
 
+}
+
+
+@media (max-width: 998px) {
+  .modal-content {
+    padding: 10px;
+  }
+  button {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 5px;
+  }
+  button {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 5px;
+    border-radius: 5px;
+  }
+  button {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+  .close {
+    top: 5px;
+    right: 10px;
+    font-size: 18px;
+  }
+}
 </style>

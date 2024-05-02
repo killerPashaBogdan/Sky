@@ -66,6 +66,7 @@
   left: 140px !important;
   right: auto;
 }
+
 </style>
 
 <script>
