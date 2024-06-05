@@ -17,6 +17,35 @@
   </div>
 </template>
 
+<script>
+import Swiper from 'swiper/bundle';
+import 'swiper/swiper-bundle.css';
+
+export default {
+  mounted() {
+    this.initializeSwiper();
+  },
+  methods: {
+    initializeSwiper() {
+      new Swiper('.swiper-container', {
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+      });
+    },
+  },
+};
+</script>
 <style >
 .swiper-container {
   width: 100%;
@@ -54,7 +83,6 @@
   background-color: #2163B2 !important; 
 }
 
-
 .swiper-button-next,
 .swiper-button-prev {
   right: 140px !important;
@@ -67,34 +95,43 @@
   right: auto;
 }
 
+@media (max-width: 1220px) {
+  .swiper-slide img {
+    width: 70%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    right: 100px !important;
+    left: auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left: 100px !important;
+    right: auto;
+  }
+}
+@media (max-width: 998px){
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-slide img {
+    width: 80%;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .swiper-slide img {
+    width: 90%;
+  }
+}
+
+
 </style>
-
-<script>
-import Swiper from 'swiper/bundle';
-import 'swiper/swiper-bundle.css';
-
-export default {
-  mounted() {
-    this.initializeSwiper();
-  },
-  methods: {
-    initializeSwiper() {
-      new Swiper('.swiper-container', {
-        loop: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-      });
-    },
-  },
-};
-</script>

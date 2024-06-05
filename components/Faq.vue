@@ -77,8 +77,12 @@
     width: 100%;
     text-align: left;
     font-size: 18px;
+    transition: 0.3s, color 0.3s;
   }
-  
+  .faq-question:hover{
+    background-color: #174580; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
   .plus-icon,
   .minus-icon {
     position: absolute;
