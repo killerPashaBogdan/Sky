@@ -9,6 +9,7 @@
     <Details/>
     <OurSrvices @change-modal="changeModalVisibility"/>
     <Gallery/>
+    <ReviewSlider/>
     <Faq/>    
     <Contacts/>
     <Footer/>
@@ -18,6 +19,7 @@
 
 <script setup>
 import Slider from '~/components/Slider.vue';
+import ReviewSlider from '~/components/ReviewSlider.vue';
 
 const isModalOpened = ref('');
 

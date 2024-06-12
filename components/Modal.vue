@@ -107,6 +107,9 @@ button:hover {
     padding: 8px 10px;
     font-size: 11px;
   }
+  h2{
+    font-size: 20px;
+  }
 
 }
 
@@ -115,14 +118,12 @@ button:hover {
     padding: 5px;
     border-radius: 5px;
   }
-  button {
-    padding: 5px 8px;
-    font-size: 10px;
+  input{
+    font-size: 12px ;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 80%;
   }
-  .close {
-    top: 5px;
-    right: 10px;
-    font-size: 18px;
-  }
+ 
 }
 </style>

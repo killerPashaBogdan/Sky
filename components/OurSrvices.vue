@@ -141,11 +141,13 @@ p {
   .services-section {
     padding: 50px 10px;
   }
-  h1 {
-    font-size: 20px; 
+  h2 {
+  font-size: 16px; 
   }
-  .service-card {
-    width: 100%; 
+  p{
+    font-size: 14px;
   }
+
 }
+
 </style>

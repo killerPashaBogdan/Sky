@@ -73,6 +73,7 @@ export default {
   left: 0;
   width: 100%;
   text-align: center;
+  margin-top: 10px;
 }
 
 .swiper-pagination-bullet {
