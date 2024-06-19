@@ -1,7 +1,7 @@
 <template>
   <div class="modal" @click="closeModal">
     <div class="modal-content" @click.stop>
-      <form @click.stop>
+      <form @submit.prevent="submitForm">
         <span class="close" @click="emit('closeModal')">&times;</span>
         <h2>Оставить заявку</h2>
         <input v-model="name" placeholder="Ваше имя" required>
@@ -13,14 +13,30 @@
 </template>
 
 <script setup>
-  const emit = defineEmits(['closeModal']);
+import { ref } from 'vue';
+import axios from 'axios';
 
-  const name = ref('');
-  const phoneNumber = ref('');
+const emit = defineEmits(['closeModal']);
 
-  const closeModal = () => {
-    emit('closeModal');
-  };
+const name = ref('');
+const phoneNumber = ref('');
+
+const closeModal = () => {
+  emit('closeModal');
+};
+
+const submitForm = async () => {
+  try {
+    await axios.post('http://localhost:3000/send-email', {
+      name: name.value,
+      phoneNumber: phoneNumber.value
+    });
+    alert('Заявка успешно отправлена');
+    closeModal();
+  } catch (error) {
+    alert('Ошибка при отправке заявки');
+  }
+};
 </script>
 
 <style scoped>

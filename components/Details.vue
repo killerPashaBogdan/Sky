@@ -46,7 +46,7 @@
 .details_text p {
   margin-bottom: 20px;
   line-height: 1.6;
-  color: #444; /* Немного меняем цвет текста для лучшей читаемости */
+  color: #444; 
 }
 
 .details_steps {

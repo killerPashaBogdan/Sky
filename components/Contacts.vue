@@ -32,7 +32,7 @@
           </a>
     </div>
     <div class="contact-form">
-      <form>
+      <form @submit.prevent="submitForm">
         <h2>Оставить заявку</h2>
         <input v-model="name" placeholder="Ваше имя" required>
         <input v-model="phoneNumber" placeholder="Номер телефона" required type="tel">
@@ -45,9 +45,22 @@
 
 <script setup>
 import { ref } from 'vue'
+import axios from 'axios';
 
-const name = ref('')
-const phone = ref('')
+const name = ref('');
+const phoneNumber = ref('');
+const submitForm = async () => {
+  try {
+    await axios.post('http://localhost:3000/send-email', {
+      name: name.value,
+      phoneNumber: phoneNumber.value
+    });
+    alert('Заявка успешно отправлена');
+    closeModal();
+  } catch (error) {
+    alert('Ошибка при отправке заявки');
+  }
+};
 
 </script>
 

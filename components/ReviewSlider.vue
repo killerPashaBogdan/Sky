@@ -106,7 +106,7 @@ const reviews = [
   border-radius: 5px;
   text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 400px; 
+  height: 440px; 
   width: 500px; 
   box-sizing: border-box;
   transition:  0.3s ease, 0.3s ease;
